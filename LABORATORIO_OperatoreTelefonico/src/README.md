@@ -11,6 +11,6 @@ Rispetto alla lezione sono stati aggiornati alcuni aspetti:
 
 3. Nel metodo getMinutesAmount() è stata utilizzata correttamente la classe Duration al posto di Double
 
-'''
+```
 Provare a completare il progetto da soli (rimangono le implementazioni dei metodi).
-'''
+```
