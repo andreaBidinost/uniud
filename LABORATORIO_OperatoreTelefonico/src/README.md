@@ -1,6 +1,6 @@
-Progetto sviluppato giovedì 17 Ottobre 2019.
+# Progetto sviluppato giovedì 17 Ottobre 2019.
 
-Obiettivi: modellazione del problema, definizione di pre e post condizioni.
+## Obiettivi: modellazione del problema, definizione di pre e post condizioni.
 
 
 Rispetto alla lezione sono stati aggiornati alcuni aspetti:
