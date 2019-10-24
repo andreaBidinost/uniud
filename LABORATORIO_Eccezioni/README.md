@@ -28,4 +28,6 @@ Contiene l'aggiornamento delle classi del progetto Operatore Telefonico.
 - è stato migliorato il tipo enumerativo *Promotions* aggiungendo dei valori allegati agli elementi dell'insieme
 - sono stati aggiunti i metodi CallData.isValidPhoneNumber, Sim.toString, Sim.getNumberOfCalls, Sim.activatePromo, PhoneAdministration.saveSimDataToFile, PhoneAdministration.call
 
-
+'''
+Provare a completare il progetto aggiungendo le eccezioni ritenute necessarie, scegliendo se renderle checked o unchecked
+'''
