@@ -15,3 +15,8 @@ per ulteriori informazioni [lombok in Eclipse](https://howtodoinjava.com/automat
 
 ### 4. uniud.esame.trasporti
 Contiene una possibile risoluzione del tema d'esame (con le competenze discusse fino a questo momento).
+
+
+```
+Provare a completare la prova d'esame aggiungendo eccezioni, asserzioni e log di situazioni rilevanti, stilando il contratto di ogni metodo.
+```
