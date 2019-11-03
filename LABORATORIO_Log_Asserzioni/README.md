@@ -1,6 +1,9 @@
 # Esercitazione di Giovedì 31 Ottobre 2019
 ## Obiettivi: Assertions, logging, lombok, risoluzione tema d'esame
 
+La cartella "src" contiene i sorgenti caricati prima dell'esercitazione.
+La cartella "src_after" contiene le modifiche e le aggiunte svolte durante l'esercitazione.
+
 ### 1. package uniud.assertions
 Contiene la classe RankedPost con esempi di utilizzo delle asserzioni.
 
