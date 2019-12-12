@@ -3,7 +3,7 @@
 ## Obiettivi: Interfaces, abstract classes, dipendency inversion
 
 ### 1. package abstraction.liskov
-Contiene un'esempio di sotto-classe (**MessageWithImage**) ereditata ed utilizzata al posto della super-classe (**PhoneMessage**).
+Contiene un'esempio pratico di applicazione del principio di Liskov, ovvero una sotto-classe (**MessageWithImage**) ereditata ed utilizzata al posto della super-classe (**PhoneMessage**) senza cambiamenti nel codice (**Notifier**) che la utilizza.
 
 ### 2. package abstraction.liskov.violation
 Contiene un esempio di violazione del principio di Liskov: **SMS** non eredita logicamente da **Document**.
