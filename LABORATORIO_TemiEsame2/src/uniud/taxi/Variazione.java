@@ -1,16 +1,16 @@
 package uniud.taxi;
 
-import java.sql.Date;
 import java.util.Calendar;
 
+/**
+ * Rappresenta una variazione in una prenotazione (nel momento o nel numero di passeggeri).
+ */
 public class Variazione {
 	private Calendar nuovoMomento = null;
 	private Integer nuovoNumero = null;
 	private Taxi nuovoTaxi = null;
 	
 	
-	
-
 	public Variazione(Calendar nuovoMomento, Integer nuovoNumero, Taxi nuovoTaxi) {
 		this.nuovoMomento = nuovoMomento;
 		this.nuovoNumero = nuovoNumero;

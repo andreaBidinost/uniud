@@ -2,18 +2,31 @@ package uniud.taxi;
 
 import java.util.Calendar;
 
-public class DatiPrenotazione {
+/**
+ * Rappresenta i dati necessari per una prenotazione
+ */
+class DatiPrenotazione {
 
 	private Viaggio viaggio;
 	private Integer postiRichiesti;
 	private Integer idPasseggero;
 	
-	public DatiPrenotazione() {
+	/**
+	 * Costruttore (Creator).
+	 * Crea un nuovo oggetto della classe, inizialmente senza informazioni. 
+	 */
+	DatiPrenotazione() {
+		this.viaggio = null;
 		this.postiRichiesti = null;
 		this.idPasseggero = null;
 	}
 	
-	public DatiPrenotazione(DatiPrenotazione datiPrenotazione) {
+	/**
+	 * Costruttore (Producer).
+	 * Crea un nuovo oggetto della classe copiando le informazioni da un oggetto precedente.
+	 * @param datiPrenotazione l'insieme di dati da copiare durante la creazione
+	 */
+	DatiPrenotazione(DatiPrenotazione datiPrenotazione) {
 		this.viaggio = datiPrenotazione.viaggio;
 		this.postiRichiesti = datiPrenotazione.postiRichiesti;
 		this.idPasseggero = datiPrenotazione.idPasseggero;

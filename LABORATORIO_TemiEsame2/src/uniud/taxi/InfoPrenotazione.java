@@ -3,7 +3,14 @@ package uniud.taxi;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import uniud.eccezioni.ArgomentiMancanti;
+
+/**
+ * Contiene le informazioni di una prenotazione indipendentemente dal suo stato.
+ */
 public class InfoPrenotazione {
 	private DatiPrenotazione datiPrenotazione;
 	private Taxi taxi = null;
@@ -51,12 +58,17 @@ public class InfoPrenotazione {
 	}
 	
 	public Corsa getCorsa() {
-		if(StatiPrenotazione.ACCETTATA.equals(statoPrenotazione)) {
-			Corsa corsa = new Corsa(taxi, this.datiPrenotazione.getPostiRichiesti(), this.datiPrenotazione.getViaggio());
-			return corsa;
-		} else {
-			return null;
+		Corsa corsa = null;
+		
+		if(StatiPrenotazione.ACCETTATA.equals(statoPrenotazione)) {			
+			try {
+				corsa = new Corsa(taxi, this.datiPrenotazione.getPostiRichiesti(), this.datiPrenotazione.getViaggio());
+			} catch (ArgomentiMancanti e) {
+				Logger.getGlobal().log(Level.WARNING,"dati prenotazione incompleti");
+			}									
 		}
+		
+		return corsa;
 	}
 
 }

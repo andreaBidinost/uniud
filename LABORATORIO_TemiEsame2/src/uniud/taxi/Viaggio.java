@@ -1,24 +1,29 @@
 package uniud.taxi;
 
 import java.util.Calendar;
-import java.util.Date;
 
-public class Viaggio {
+import uniud.eccezioni.ArgomentiMancanti;
+
+class Viaggio {
 	private Luogo partenza;
 	private Luogo destinazione;
 	private Calendar oraPartenza;
 	
 	
-	public Viaggio(Luogo partenza, Luogo destinazione, Calendar oraPartenza) {
+	public Viaggio(Luogo partenza, Luogo destinazione, Calendar oraPartenza) throws ArgomentiMancanti {
+		if(partenza==null || destinazione == null || oraPartenza == null) {
+			throw new ArgomentiMancanti("partenza, destinazione o ora partenza");
+		}
 		this.partenza = partenza;
 		this.destinazione = destinazione;
 		this.oraPartenza = oraPartenza;
 	}
 	
-	public Viaggio(Viaggio viaggio) {
-		this.partenza = viaggio.partenza;
-		this.destinazione = viaggio.destinazione;
-		this.oraPartenza = viaggio.oraPartenza;	}
+	public Viaggio(Viaggio viaggio) throws ArgomentiMancanti {
+		this(viaggio!=null?viaggio.partenza:null,
+				viaggio!=null?viaggio.destinazione:null,
+				viaggio!=null?viaggio.oraPartenza:null);	
+	}
 
 	Luogo getPartenza() {
 		return partenza;

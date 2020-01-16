@@ -1,7 +1,6 @@
 package uniud.utente;
 
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Calendar;
 
 import uniud.taxi.Applicazione;
@@ -70,7 +69,7 @@ public class Main {
 		String dataEOra = "2020-07-14 09:00:02";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar momentoPartenza = Calendar.getInstance();
-		momentoPartenza.setTime(sdf.parse(dataEOra));// all done
+		momentoPartenza.setTime(sdf.parse(dataEOra));
 		
 		String codicePrenotazione2 = app.prenota(partenza, destinazione, 5, momentoPartenza, idPasseggero);
 		

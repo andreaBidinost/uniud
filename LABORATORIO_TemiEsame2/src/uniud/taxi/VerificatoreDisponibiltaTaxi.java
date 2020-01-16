@@ -6,16 +6,20 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Realizza un valutatore della disponibilità di uno o più taxi per esaudire una richiesta di prenotazione.
+ *
+ */
 class VerificatoreDisponibiltaTaxi {
-	private final int MAX_ATTESA_VARIAZIONE = 5;
+	private final int MAX_ATTESA_VARIAZIONE = 5;//minuti
 
-	private final Double PCT_TAXI_LIBERI = 0.3;
-	private final Integer DISTANZA_ATTESA_TAXI = 5000;
+	private final Double PCT_TAXI_LIBERI = 0.3;//30%
+	private final Integer DISTANZA_ATTESA_TAXI = 5000;//metri
 	
-	private Gestore<Taxi> registroTaxi;
+	private GestoreConCodice<Taxi> registroTaxi;
 	private Map<String, InfoPrenotazione> listaPrenotazioni;
 	
-	public VerificatoreDisponibiltaTaxi(Gestore<Taxi> registroTaxi, Map<String, InfoPrenotazione> prenotazioniOdierne) {
+	VerificatoreDisponibiltaTaxi(GestoreConCodice<Taxi> registroTaxi, Map<String, InfoPrenotazione> prenotazioniOdierne) {
 		this.registroTaxi = registroTaxi;
 		this.listaPrenotazioni = prenotazioniOdierne;
 	}
@@ -89,6 +93,7 @@ class VerificatoreDisponibiltaTaxi {
 		return taxiDisponibili;		
 	}
 
+	//Verifica se un taxi è libero per tutto l'intervallo di tempo richiesto da una prenotazione
 	private boolean taxiNonPrenotato(Taxi taxi, Calendar momentoInizialeRichiesto, Duration durataOccupazione) {
 		Calendar momentoArrivoRichiesto = momentoInizialeRichiesto.getInstance();
 		momentoArrivoRichiesto.add(Calendar.SECOND, (int) durataOccupazione.getSeconds());
@@ -121,6 +126,7 @@ class VerificatoreDisponibiltaTaxi {
 		return true;
 	}
 	
+	//Calcola tutte le possibili variazioni (in momento o numero passeggeri) di una prenotazione rifiutata
 	List<Variazione> calcolaVariazioni(DatiPrenotazione datiIniziali) {
 		List<Variazione> variazioniSuggerite = new ArrayList<Variazione>();
 		Calendar momentoPartenza = datiIniziali.getMomento();

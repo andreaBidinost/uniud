@@ -2,19 +2,52 @@ package uniud.taxi;
 
 import java.util.Calendar;
 
+import uniud.eccezioni.ArgomentiMancanti;
+
+/**
+ * Rappresenta una corsa di un taxi.
+ */
 public class Corsa extends Viaggio{
 	
 	private Taxi taxi;
 	private Integer nPasseggeri;
 	
-	public Corsa(Taxi taxi,Integer nPasseggeri, Viaggio viaggio) {
+	/**
+	 * Costruttore (Creator).
+	 * Costruisce una nuova corsa a partire dalle informazioni fornite.
+	 * @param taxi taxi associato alla corsa (REQUIRED)
+	 * @param nPasseggeri numero di passeggeri della corsa (REQUIRED)
+	 * @param viaggio viaggio richiesto Corsa corsa = null;
+	 * @throws ArgomentiMancanti nel caso in cui un parametro non sia fornito
+	 */
+	public Corsa(Taxi taxi,Integer nPasseggeri, Viaggio viaggio) throws ArgomentiMancanti {
 		super(viaggio);
+		
+		if(taxi==null || nPasseggeri == null) {
+			throw new ArgomentiMancanti("taxi o numero passeggeri");
+		}
+		
 		this.taxi = taxi;
 		this.nPasseggeri = nPasseggeri;
 	}
 	
-	public Corsa(Taxi taxi,Integer nPasseggeri, Luogo partenza, Luogo destinazione, Calendar oraPartenza) {
+	/**
+	 * Costruttore (Creator).
+	 * Costruisce una nuova corsa a partire dalle informazioni fornite.
+	 * @param taxi taxi associato alla corsa (REQUIRED)
+	 * @param nPasseggeri numero di passeggeri della corsa (REQUIRED)
+	 * @param partenza luogo di partenza
+	 * @param destinazione luogo di arrivo
+	 * @param oraPartenza ora di partenza
+	 * @throws ArgomentiMancanti nel caso in cui un parametro non sia fornito
+	 */
+	public Corsa(Taxi taxi,Integer nPasseggeri, Luogo partenza, Luogo destinazione, Calendar oraPartenza) throws ArgomentiMancanti {
 		super(partenza, destinazione, oraPartenza);
+		
+		if(taxi==null || nPasseggeri == null) {
+			throw new ArgomentiMancanti("taxi o numero passeggeri");
+		}
+		
 		this.taxi = taxi;
 		this.nPasseggeri = nPasseggeri;
 	}
@@ -34,6 +67,7 @@ public class Corsa extends Viaggio{
 	void setnPasseggeri(Integer nPasseggeri) {
 		this.nPasseggeri = nPasseggeri;
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder string = new StringBuilder();
@@ -44,6 +78,4 @@ public class Corsa extends Viaggio{
 		string.append(nPasseggeri);
 		return string.toString();
 	}
-	
-	
 }

@@ -1,22 +1,28 @@
 package uniud.taxi;
 
-import java.util.Date;
+import java.util.Calendar;
+
+import uniud.eccezioni.ArgomentiMancanti;
 
 class Persona {
 	private String nome;
 	private String cognome;
-	private Date dataDiNascita;
+	private Calendar dataDiNascita;
 	private String cellulare;
 	
-	public Persona(String nome, String cognome, Date dataDiNascita) {
-		super();
+	public Persona(String nome, String cognome, Calendar data) throws ArgomentiMancanti {
+		if(nome == null || cognome== null || data == null) {
+			throw new ArgomentiMancanti("nome, cognome o data di nascita");
+		}
 		this.nome = nome;
 		this.cognome = cognome;
-		this.dataDiNascita = dataDiNascita;
+		this.dataDiNascita = data;
 	}
 	
-	public Persona(String nome, String cognome, Date dataDiNascita, String cellulare) {
-		super();
+	public Persona(String nome, String cognome, Calendar dataDiNascita, String cellulare) throws ArgomentiMancanti {
+		if(nome == null || cognome== null || dataDiNascita == null ) {
+			throw new ArgomentiMancanti("nome, cognome o data di nascita");
+		}
 		this.nome = nome;
 		this.cognome = cognome;
 		this.dataDiNascita = dataDiNascita;
@@ -35,10 +41,10 @@ class Persona {
 	void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	Date getDataDiNascita() {
+	Calendar getDataDiNascita() {
 		return dataDiNascita;
 	}
-	void setDataDiNascita(Date dataDiNascita) {
+	void setDataDiNascita(Calendar dataDiNascita) {
 		this.dataDiNascita = dataDiNascita;
 	}
 

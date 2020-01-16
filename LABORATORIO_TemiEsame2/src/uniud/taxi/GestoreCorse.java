@@ -9,20 +9,23 @@ import java.util.stream.Collectors;
 
 import uniud.eccezioni.RichiestaPrenotazioneScaduta;
 
-public class GestoreCorse {
+/**
+ * Rappresenta un gestore delle prenotazioni e dei taxi.
+ */
+class GestoreCorse {
 	private final long MAX_ATTESA_PRENOTAZIONE = 60;
 	
 	private Map<String, InfoPrenotazione> prenotazioniOdierne;
 	private Map<String, InfoPrenotazione> storicoPrenotazioni;
 	private VerificatoreDisponibiltaTaxi verificatoreTaxi;
 	
-	public GestoreCorse(Gestore<Taxi> registroTaxi) {
+	GestoreCorse(GestoreConCodice<Taxi> registroTaxi) {
 		prenotazioniOdierne = new HashMap<String,InfoPrenotazione>();
 		storicoPrenotazioni = new HashMap<String,InfoPrenotazione>();
 		verificatoreTaxi = new VerificatoreDisponibiltaTaxi(registroTaxi, prenotazioniOdierne);
 	}
 
-	public List<Corsa> getReportGiornaliero() {
+	List<Corsa> getReportGiornaliero() {
 		
 		return prenotazioniOdierne
 				.values()
@@ -34,11 +37,11 @@ public class GestoreCorse {
 				.collect(Collectors.toList());	
 	}
 
-	public InfoPrenotazione infoPrenotazione(String codicePrenotazione) {
+	InfoPrenotazione infoPrenotazione(String codicePrenotazione) {
 		return this.storicoPrenotazioni.get(codicePrenotazione);
 	}
 	
-	public String prenota(DatiPrenotazione datiPrenotazione) throws RichiestaPrenotazioneScaduta {
+	String prenota(DatiPrenotazione datiPrenotazione) throws RichiestaPrenotazioneScaduta {
 		assert(DatiPrenotazione.Validatore.valida(datiPrenotazione));
 		
 		InfoPrenotazione infoPrenotazione = new InfoPrenotazione(datiPrenotazione);

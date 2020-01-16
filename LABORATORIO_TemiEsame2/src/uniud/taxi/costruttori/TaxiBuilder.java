@@ -1,7 +1,6 @@
 package uniud.taxi.costruttori;
 
-import uniud.eccezioni.ParametriMancanti;
-import uniud.taxi.Builder;
+import uniud.eccezioni.ArgomentiMancanti;
 import uniud.taxi.Guidatore;
 import uniud.taxi.Taxi;
 import uniud.taxi.TaxiAutonomo;
@@ -33,28 +32,28 @@ public class TaxiBuilder implements Builder{
 		return this;
 	}
 	
-	public Taxi crea() throws ParametriMancanti {
+	public Taxi crea() throws ArgomentiMancanti {
 		if(tipoGuida == null) {
-			throw new ParametriMancanti("tipo guida");
+			throw new ArgomentiMancanti("tipo guida");
 		}
 		
 		if(targa == null) {
-			throw new ParametriMancanti("targa");
+			throw new ArgomentiMancanti("targa");
 		}
 		
 		if(numeroPasseggeri == null) {
-			throw new ParametriMancanti("numero passeggeri");
+			throw new ArgomentiMancanti("numero passeggeri");
 		}
 		
 		if(tipoGuida.equals(TipiGuida.AUTONOMA)) {
 			if(produttoreSoftware == null) {
-				throw new ParametriMancanti("produttore software");
+				throw new ArgomentiMancanti("produttore software");
 			}
 			
 			return new TaxiAutonomo(targa, numeroPasseggeri, produttoreSoftware);
 		} else {
 			if(guidatore == null) {
-				throw new ParametriMancanti("guidatore");
+				throw new ArgomentiMancanti("guidatore");
 			}
 			
 			return new TaxiGuidato(targa, numeroPasseggeri, guidatore);
