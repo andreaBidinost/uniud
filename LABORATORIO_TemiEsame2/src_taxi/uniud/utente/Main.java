@@ -50,8 +50,8 @@ public class Main {
 		//FINE DELLA PARTE NON RICHIESTA
 			
 		//prenotazione immediata
-		Luogo partenza = app.getLuogo("Via delle Scienze, 206, 33100 Udine UD");
-		Luogo destinazione = app.getLuogo("Via Antonio Bardelli, 4, 33035 Martignacco UD");
+		Luogo partenza = app.daIndirizzoALuogo("Via delle Scienze, 206, 33100 Udine UD");
+		Luogo destinazione = app.daIndirizzoALuogo("Via Antonio Bardelli, 4, 33035 Martignacco UD");
 		String codicePrenotazione = app.prenota(partenza, destinazione, 3, idPasseggero); 
 		
 		//Controllo esito prenotazione

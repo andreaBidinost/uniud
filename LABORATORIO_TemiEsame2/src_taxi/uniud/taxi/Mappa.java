@@ -18,7 +18,7 @@ class Mappa {
 	 * @return il luogo associato all'indirizzo
 	 * @throws IndirizzoNonEsistente nel caso in cui l'indirizzo non sia riconosciuto
 	 */
-	static Luogo getLuogo(String indirizzo) throws IndirizzoNonEsistente {
+	static Luogo daIndirizzoALuogo(String indirizzo) throws IndirizzoNonEsistente {
 		//connetto ad un servizio web (es. Google Maps) ed ottengo latitudine e longitudine di un indirizzo
 		//Dependency Inversion
 		double coordinate[] = servizioWeb.ottieniCoordinate(indirizzo);

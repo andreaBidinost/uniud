@@ -28,7 +28,7 @@ class VerificatoreDisponibiltaTaxi {
 		//Verifico se esiste un taxi disponibile	
 		boolean prenotazioneFutura = datiPrenotazione.getMomento().after(Calendar.getInstance());
 		
-		List<Taxi> taxiDisponibili;
+		List<Taxi> taxiDisponibili = null;
 		
 		if(prenotazioneFutura) {
 			taxiDisponibili = trovaTaxiDisponibiliFuturo(datiPrenotazione, 1);

@@ -198,9 +198,9 @@ public class Applicazione {
 	 * @return il luogo definito dall'indirizzo richiesto
 	 * @throws IndirizzoNonEsistente nel caso in cui all'indirizzo non sia associabile alcun luogo
 	 */
-	public Luogo getLuogo(String indirizzo) throws IndirizzoNonEsistente {
+	public Luogo daIndirizzoALuogo(String indirizzo) throws IndirizzoNonEsistente {
 		assert(campiNonNulli());
-		return Mappa.getLuogo(indirizzo);
+		return Mappa.daIndirizzoALuogo(indirizzo);
 	}
 
 	/**

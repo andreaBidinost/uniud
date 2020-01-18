@@ -7,13 +7,13 @@ import java.util.Calendar;
  */
 public class Variazione {
 	private Calendar nuovoMomento = null;
-	private Integer nuovoNumero = null;
+	private Integer nuovoNumeroPosti = null;
 	private Taxi nuovoTaxi = null;
 	
 	
 	public Variazione(Calendar nuovoMomento, Integer nuovoNumero, Taxi nuovoTaxi) {
 		this.nuovoMomento = nuovoMomento;
-		this.nuovoNumero = nuovoNumero;
+		this.nuovoNumeroPosti = nuovoNumero;
 		this.nuovoTaxi = nuovoTaxi;
 	}
 	
@@ -24,10 +24,10 @@ public class Variazione {
 		this.nuovoMomento = nuovoMomento;
 	}
 	Integer getNuovoNumero() {
-		return nuovoNumero;
+		return nuovoNumeroPosti;
 	}
 	void setNuovoNumero(Integer nuovoNumero) {
-		this.nuovoNumero = nuovoNumero;
+		this.nuovoNumeroPosti = nuovoNumero;
 	}
 	
 	Taxi getNuovoTaxi() {
@@ -50,8 +50,8 @@ public class Variazione {
 		if(nuovoMomento != null) {
 			stringa.append("\nNuovo Momento: ").append(nuovoMomento);
 		}
-		if(nuovoNumero != null) {
-			stringa.append("\nNuovo Numero Passeggeri: ").append(nuovoNumero);
+		if(nuovoNumeroPosti != null) {
+			stringa.append("\nNuovo Numero Passeggeri: ").append(nuovoNumeroPosti);
 		}
 		
 		return stringa.toString();

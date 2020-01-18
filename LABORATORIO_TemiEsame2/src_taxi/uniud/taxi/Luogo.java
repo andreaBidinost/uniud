@@ -11,7 +11,6 @@ package uniud.taxi;
  * - getLongitudine (restituisce la longitudine)
  * - setLatitudine (modifica la latitudine): modificatore di stato
  * - setLongitudine (modifica la longitudine): modificatore di stato
- * @author AndreaBidinost
  *
  */
 public class Luogo {
